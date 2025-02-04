@@ -1,0 +1,48 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9fcd3;
+    padding: 15px 20px;
+   
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+.li-n a{
+    text-decoration: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+    
+}
+
+nav ul li a {
+    
+    color: #000000;
+    font-size: 1.2rem;
+    
+}
+
+
+nav .right-section {
+    display: flex;
+    align-items: center;
+}
+
+nav .right-section input {
+    padding: 5px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+nav .right-section img {
+    width: 30px;
+    height: 30px;
+    
+}

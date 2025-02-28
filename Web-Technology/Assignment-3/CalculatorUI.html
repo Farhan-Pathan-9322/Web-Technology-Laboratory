@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      let currentInput = ""; 
+      let operand1 = 0;   // First input 
+      let operator = 0;   // Selected Operator
+
+      // Displays the pressed number
+      function displayValue(value) {
+        currentInput += value;
+        document.f1.t1.value = currentInput;
+      }
+
+      // Stores the operator and first input
+      function selectOperator(op) {
+        if (currentInput === "") 
+        return;
+        operand1 = parseFloat(currentInput);
+        operator = op;
+        currentInput = "";
+        document.f1.t1.value = "";
+      }
+
+      // Calculates the result
+      function calculate() {
+        if (currentInput === "" || operand1 === null || operator === null) return;
+        let operand2 = parseFloat(currentInput);
+        let result;
+
+        // Perform calculation based on operator
+        switch (operator) {
+          case "+":
+            result = operand1 + operand2;
+            break;
+          case "-":
+            result = operand1 - operand2;
+            break;
+          case "*":
+            result = operand1 * operand2;
+            break;
+          case "/":
+            result = operand2 !== 0 ? operand1 / operand2 : "Error"; // Handle divide by zero
+            break;
+        }
+
+        // Display result and reset values
+        document.f1.t1.value = result;
+        currentInput = "";
+        operand1 = null;
+        operator = null;
+      }
+
+      // Clears the input and resets calculator
+      function clearAll() {
+        currentInput = "";
+        operand1 = null;
+        operator = null;
+        document.f1.t1.value = "";
+      }
+    </script> 
+  </head>
+  <body>
+    
+    <form  name="f1">
+    <center>
+      <h1>Calculator</h1>
+      <div class="div-container">
+        <p class="p-tag">casio</p>
+        <input type="text" class="input-tag" name="t1" value="" />
+        <br />
+        <div class="button-container">
+          <button type="button" class="custom-button" onclick="clearAll()">C</button>
+
+          <button type="button" class="custom-button" onclick="displayValue('1')">1</button>
+          <button type="button" class="custom-button" onclick="displayValue('2')">2</button>
+          <button type="button" class="custom-button" onclick="displayValue('3')">3</button>
+          
+          <button type="button" class="custom-button" onclick="displayValue('4')">4</button>
+          <button type="button" class="custom-button" onclick="displayValue('5')">5</button>
+          <button type="button" class="custom-button" onclick="displayValue('6')">6</button>
+          
+          <button type="button" class="custom-button" onclick="displayValue('7')">7</button>
+          <button type="button" class="custom-button" onclick="displayValue('8')">8</button>
+          <button type="button" class="custom-button" onclick="displayValue('9')">9</button>
+          <button type="button" class="custom-button" onclick="displayValue('0')">0</button>
+
+          <button type="button" class="custom-button" onclick="selectOperator('-')">-</button>
+          <button type="button" class="custom-button" onclick="selectOperator('+')">+</button>
+          <button type="button" class="custom-button" onclick="selectOperator('*')">*</button>
+          <button type="button" class="custom-button" onclick="selectOperator('/')">/</button>
+
+          
+          <button type="button" class="custom-button" onclick="calculate()">=</button>
+        </div>
+    </div>
+    </form>
+    </center>
+  </body>
+</html>
